@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Exclude docs" pattern="!file[sdk]:doc//*" />
+</component>

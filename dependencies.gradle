@@ -1,0 +1,37 @@
+ext {
+    coreVersion = '1.0.0'
+
+    coreGroupId = 'com.botnerd.core'
+
+    googleServicesVersion = '4.2.0'
+
+    kotlinVersion = '1.3.21'
+    navVersion = "2.0.0"
+
+    supportLibVersion = '1.0.2'
+    legacySupportLibVersion = '1.0.0'
+    materialLibVersion = '1.0.0'
+    recyclerLibVersion = '1.0.0'
+    browserLibVersion = '1.0.0'
+    mediaLibVersion = '1.0.0'
+
+    // Networking
+    retrofitVersion = '2.5.0'
+    okhttpVersion = '3.13.1'
+    okioVersion = '2.2.2'
+
+    // Image Loading
+    frescoVersion = '1.13.0'
+
+    // Timber logging util
+    timberVersion = '4.7.1'
+
+    // Barcode Support
+    zxingCoreVersion = '3.3.0' // Higher versions support Android SDK 19+
+    zxingAndroidEmbeddedVersion = '3.5.0'
+
+    junitVersion = '4.12'
+    androidTestVersion = '1.1.0'
+    espressoVersion = '3.1.0'
+
+}
