@@ -16,11 +16,30 @@ final String CONFIG_TYPE_STRING = 'String'
 final String CONFIG_LOGGING_ENABLED = 'LOGGING_ENABLED'
 
 group "$rootProject.ext.coreGroupId"
+version = "$rootProject.ext.coreVersion"
 
-uploadArchives {
-    repositories {
-        mavenLocal()
-    }
+ext {
+    artifact = project.name
+    libraryDescription = 'Util Module'
+
+    bintrayRepo = "$rootProject.ext.binTrayRepo"
+    bintrayName = "$rootProject.ext.binTrayName"
+    publishedGroupId = "$rootProject.ext.coreGroupId"
+    libraryName = "$rootProject.ext.libraryName"
+
+    libraryVersion = "$rootProject.ext.coreVersion"
+
+    siteUrl = "$rootProject.ext.siteUrl"
+    gitUrl = "$rootProject.ext.gitUrl"
+
+    developerId = "$rootProject.ext.developerId"
+    developerName = "$rootProject.ext.developerName"
+    developerEmail = "$rootProject.ext.developerEmail"
+
+    licenseName = "$rootProject.ext.licenseName"
+    licenseUrl = "$rootProject.ext.licenseUrl"
+    allLicenses = "$rootProject.ext.allLicenses"
+
 }
 
 android {
@@ -30,7 +49,7 @@ android {
         minSdkVersion sdkMinVersion
         targetSdkVersion sdkTargetVersion
         versionCode 1
-        versionName "$rootProject.ext.coreVersion"
+        versionName version
 
         consumerProguardFiles 'proguard-rules.pro'
 
@@ -77,3 +96,11 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.androidTestVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
 }
+
+//Add these lines to publish library to bintray. This is the readymade scripts made by github user nuuneoi to make uploading to bintray easy.
+//Place it at the end of the file
+if (project.rootProject.file('local.properties').exists()) {
+    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/install.gradle'
+    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/bintray.gradle'
+}
+

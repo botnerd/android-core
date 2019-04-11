@@ -3,6 +3,21 @@ ext {
 
     coreGroupId = 'com.botnerd.core'
 
+    binTrayRepo = 'android-core'
+    binTrayName = 'com.botnerd.core'
+    libraryName = 'android-core'
+
+    siteUrl = 'https://github.com/botnerd/android-core'
+    gitUrl = 'https://github.com/botnerd/android-core.git'
+
+    developerId = 'botnerd'
+    developerName = 'Tim Judkins'
+    developerEmail = 'tim@botnerd.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+
     googleServicesVersion = '4.2.0'
 
     kotlinVersion = '1.3.21'
