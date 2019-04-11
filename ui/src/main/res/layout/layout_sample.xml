@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <import type="java.lang.String"/>
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+        <variable
+            name="data"
+            type="androidx.databinding.BaseObservable"
+            />
+        <variable
+            name="callback"
+            type="com.botnerd.core.ui.view.binding.MultiTypeDataBoundAdapter.ActionCallback"
+            />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</layout>

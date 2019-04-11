@@ -1,0 +1,84 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+
+// Build config types set by the variants
+final String CONFIG_TYPE_BOOLEAN = 'boolean'
+//noinspection GroovyUnusedAssignment
+final String CONFIG_TYPE_INT = 'int'
+//noinspection GroovyUnusedAssignment
+final String CONFIG_TYPE_LONG = 'long'
+//noinspection GroovyUnusedAssignment
+final String CONFIG_TYPE_STRING = 'String'
+
+// Build config fields set by the variants
+//noinspection GroovyUnusedAssignment
+final String CONFIG_LOGGING_ENABLED = 'LOGGING_ENABLED'
+
+group "$rootProject.ext.coreGroupId"
+
+uploadArchives {
+    repositories {
+        mavenLocal()
+    }
+}
+
+android {
+    compileSdkVersion sdkCompileVersion
+    buildToolsVersion buildTools
+    defaultConfig {
+        minSdkVersion sdkMinVersion
+        targetSdkVersion sdkTargetVersion
+        versionCode 1
+        versionName "$rootProject.ext.coreVersion"
+
+        consumerProguardFiles 'proguard-rules.pro'
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            buildConfigField CONFIG_TYPE_BOOLEAN, CONFIG_LOGGING_ENABLED, true.toString()
+        }
+        release {
+            buildConfigField CONFIG_TYPE_BOOLEAN, CONFIG_LOGGING_ENABLED, false.toString()
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        warningsAsErrors true
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    })
+
+    // Timber logging util
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+
+    // Barcode Support
+    implementation "com.google.zxing:core:$rootProject.ext.zxingCoreVersion"
+    implementation "com.journeyapps:zxing-android-embedded:$rootProject.ext.zxingAndroidEmbeddedVersion"
+
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.androidTestVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
+}
+

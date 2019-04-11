@@ -6,9 +6,9 @@ buildscript {
         sdkCompileVersion = 28
         sdkMinVersion = 17
         sdkTargetVersion = 28
+        buildTools = '28.0.3'
     }
     repositories {
-        mavenLocal()
         jcenter()
         google()
         mavenCentral()
