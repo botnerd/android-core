@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/botnerd/android-core/com.botnerd.core/images/download.svg) ](https://bintray.com/botnerd/android-core/com.botnerd.core/_latestVersion)
+
 # Android Core Libraries
 
 This library provides a set of common utilities and classes. The library is broken into four modules:
