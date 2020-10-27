@@ -6,7 +6,10 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.botnerd.core.ui.R;
 
 /**
@@ -26,8 +29,11 @@ public class WebviewActivity extends AppCompatActivity {
         webView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_close);
+        ActionBar actionBar = getSupportActionBar();
+        if (null != actionBar) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_close);
+        }
         webView.loadUrl(url);
     }
 

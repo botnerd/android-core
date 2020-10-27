@@ -3,10 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android-core.iml" filepath="$PROJECT_DIR$/android-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/barcode/barcode.iml" filepath="$PROJECT_DIR$/barcode/barcode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ui/ui.iml" filepath="$PROJECT_DIR$/ui/ui.iml" />
-      <module fileurl="file://$PROJECT_DIR$/util/util.iml" filepath="$PROJECT_DIR$/util/util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/barcode/android-core.barcode.iml" filepath="$PROJECT_DIR$/.idea/modules/barcode/android-core.barcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/network/android-core.network.iml" filepath="$PROJECT_DIR$/.idea/modules/network/android-core.network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ui/android-core.ui.iml" filepath="$PROJECT_DIR$/.idea/modules/ui/android-core.ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/android-core.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/android-core.util.iml" />
     </modules>
   </component>
 </project>

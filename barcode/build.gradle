@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
@@ -17,30 +18,30 @@ final String CONFIG_TYPE_STRING = 'String'
 //noinspection GroovyUnusedAssignment
 final String CONFIG_LOGGING_ENABLED = 'LOGGING_ENABLED'
 
-group "$rootProject.ext.coreGroupId"
-version = "$rootProject.ext.coreVersion"
+group "$coreGroupId"
+version = "$coreVersion"
 
 ext {
     artifact = project.name
     libraryDescription = 'Barcode Module'
 
-    bintrayRepo = "$rootProject.ext.binTrayRepo"
-    bintrayName = "$rootProject.ext.binTrayName"
-    publishedGroupId = "$rootProject.ext.coreGroupId"
-    libraryName = "$rootProject.ext.libraryName"
+    bintrayRepo = "$binTrayRepo"
+    bintrayName = "$binTrayName"
+    publishedGroupId = "$coreGroupId"
+    libraryName = "$libraryName"
 
-    libraryVersion = "$rootProject.ext.coreVersion"
+    libraryVersion = "$coreVersion"
 
-    siteUrl = "$rootProject.ext.siteUrl"
-    gitUrl = "$rootProject.ext.gitUrl"
+    siteUrl = "$siteUrl"
+    gitUrl = "$gitUrl"
 
-    developerId = "$rootProject.ext.developerId"
-    developerName = "$rootProject.ext.developerName"
-    developerEmail = "$rootProject.ext.developerEmail"
+    developerId = "$developerId"
+    developerName = "$developerName"
+    developerEmail = "$developerEmail"
 
-    licenseName = "$rootProject.ext.licenseName"
-    licenseUrl = "$rootProject.ext.licenseUrl"
-    allLicenses = "$rootProject.ext.allLicenses"
+    licenseName = "$licenseName"
+    licenseUrl = "$licenseUrl"
+    allLicenses = "$allLicenses"
 
 }
 
@@ -55,7 +56,7 @@ android {
 
         consumerProguardFiles 'proguard-rules.pro'
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -68,8 +69,8 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
 
@@ -87,20 +88,20 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.squareup.okhttp3', module: 'okhttp'
     })
 
     // Timber logging util
-    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersion"
+    implementation "com.jakewharton.timber:timber:$timberVersion"
 
     // Barcode Support
-    implementation "com.google.zxing:core:$rootProject.ext.zxingCoreVersion"
-    implementation "com.journeyapps:zxing-android-embedded:$rootProject.ext.zxingAndroidEmbeddedVersion"
+    implementation "com.google.zxing:core:$zxingCoreVersion"
+    implementation "com.journeyapps:zxing-android-embedded:$zxingAndroidEmbeddedVersion"
 
-    testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$rootProject.ext.androidTestVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlinVersion"
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidTestVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
 
 //Add these lines to publish library to bintray. This is the readymade scripts made by github user nuuneoi to make uploading to bintray easy.

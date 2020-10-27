@@ -3,9 +3,6 @@
     >
 
     <data>
-        <import type="java.lang.String"/>
-        <import type="android.text.TextUtils"/>
-        <import type="android.view.View"/>
         <variable
             name="data"
             type="androidx.databinding.BaseObservable"

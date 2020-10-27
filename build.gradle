@@ -1,12 +1,63 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: rootProject.file('dependencies.gradle')
     ext {
         sdkCompileVersion = 28
         sdkMinVersion = 17
         sdkTargetVersion = 28
-        buildTools = '28.0.3'
+        buildTools = '29.0.3'
+
+        coreVersion = '1.1.0'
+
+        coreGroupId = 'com.botnerd.core'
+
+        binTrayRepo = 'android-core'
+        binTrayName = 'com.botnerd.core'
+        libraryName = 'android-core'
+
+        siteUrl = 'https://github.com/botnerd/android-core'
+        gitUrl = 'https://github.com/botnerd/android-core.git'
+
+        developerId = 'botnerd'
+        developerName = 'Tim Judkins'
+        developerEmail = 'tim@botnerd.com'
+
+        licenseName = 'The Apache Software License, Version 2.0'
+        licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+        allLicenses = ["Apache-2.0"]
+
+        androidx_appcompat_version = '1.2.0'
+
+        googleServicesVersion = '4.2.0'
+
+        kotlinVersion = '1.4.10'
+        navVersion = "2.0.0"
+
+        supportLibVersion = '1.0.2'
+        legacySupportLibVersion = '1.0.0'
+        materialLibVersion = '1.2.1'
+        recyclerLibVersion = '1.1.0'
+        browserLibVersion = '1.2.0'
+        mediaLibVersion = '1.0.0'
+
+        // Networking
+        retrofitVersion = '2.9.0'
+        okhttpVersion = '4.9.0'
+        okioVersion = '2.2.2'
+
+        // Image Loading
+        frescoVersion = '2.3.0'
+
+        // Timber logging util
+        timberVersion = '4.7.1'
+
+        // Barcode Support
+        zxingCoreVersion = '3.4.1' // Higher versions support Android SDK 19+
+        zxingAndroidEmbeddedVersion = '3.5.0'
+
+        junitVersion = '4.13.1'
+        androidTestVersion = '1.1.2'
+        espressoVersion = '3.1.0'
 
     }
     repositories {
@@ -15,8 +66,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$rootProject.ext.kotlinVersion"
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
@@ -32,10 +83,6 @@ allprojects {
         google()
         mavenCentral()
     }
-}
-
-subprojects {
-    apply from: rootProject.file('dependencies.gradle')
 }
 
 task clean(type: Delete) {
