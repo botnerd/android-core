@@ -2,8 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
 
 // Build config types set by the variants
 final String CONFIG_TYPE_BOOLEAN = 'boolean'
@@ -23,26 +21,13 @@ version = "$coreVersion"
 
 ext {
     artifact = project.name
-    libraryDescription = 'Barcode Module'
 
-    bintrayRepo = "$binTrayRepo"
-    bintrayName = "$binTrayName"
     publishedGroupId = "$coreGroupId"
+    publishArtifactId = "$artifact"
+
     libraryName = "$libraryName"
-
+    libraryDescription = 'Util Module'
     libraryVersion = "$coreVersion"
-
-    siteUrl = "$siteUrl"
-    gitUrl = "$gitUrl"
-
-    developerId = "$developerId"
-    developerName = "$developerName"
-    developerEmail = "$developerEmail"
-
-    licenseName = "$licenseName"
-    licenseUrl = "$licenseUrl"
-    allLicenses = "$allLicenses"
-
 }
 
 android {
@@ -104,10 +89,4 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
 }
 
-//Add these lines to publish library to bintray. This is the readymade scripts made by github user nuuneoi to make uploading to bintray easy.
-//Place it at the end of the file
-if (project.rootProject.file('local.properties').exists()) {
-    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/install.gradle'
-    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/bintray.gradle'
-}
-
+apply from: rootProject.file('ossrh.gradle')

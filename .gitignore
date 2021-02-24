@@ -69,3 +69,10 @@ fastlane/google_play_creds.json
 
 # Travis
 .travis.tar
+
+# Maven files
+ossrh.properties
+
+# Encrypted files
+.github.tar
+secring.gpg

@@ -21,26 +21,13 @@ version = "$coreVersion"
 
 ext {
     artifact = project.name
-    libraryDescription = 'UI Module'
 
-    bintrayRepo = "$binTrayRepo"
-    bintrayName = "$binTrayName"
     publishedGroupId = "$coreGroupId"
+    publishArtifactId = "$artifact"
+
     libraryName = "$libraryName"
-
+    libraryDescription = 'Util Module'
     libraryVersion = "$coreVersion"
-
-    siteUrl = "$siteUrl"
-    gitUrl = "$gitUrl"
-
-    developerId = "$developerId"
-    developerName = "$developerName"
-    developerEmail = "$developerEmail"
-
-    licenseName = "$licenseName"
-    licenseUrl = "$licenseUrl"
-    allLicenses = "$allLicenses"
-
 }
 
 android {
@@ -116,10 +103,4 @@ configurations.all() {
     resolutionStrategy.force "androidx.legacy:legacy-support-v4:$legacySupportLibVersion"
 }
 
-//Add these lines to publish library to bintray. This is the readymade scripts made by github user nuuneoi to make uploading to bintray easy.
-//Place it at the end of the file
-if (project.rootProject.file('local.properties').exists()) {
-    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/install.gradle'
-    apply from: 'https://raw.githubusercontent.com/wajahatkarim3/JCenter-Gradle-Scripts/master/bintray.gradle'
-}
-
+apply from: rootProject.file('ossrh.gradle')

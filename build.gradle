@@ -7,16 +7,21 @@ buildscript {
         sdkTargetVersion = 28
         buildTools = '29.0.3'
 
-        coreVersion = '1.1.0'
+        coreVersion = project.rootProject.file('.lib-version').getText('UTF-8')
 
         coreGroupId = 'com.botnerd.core'
 
-        binTrayRepo = 'android-core'
-        binTrayName = 'com.botnerd.core'
+        publishGroupId = coreGroupId
+
+        libraryArtifact = 'android-core'
+        libraryGroup = 'com.botnerd.core'
         libraryName = 'android-core'
+        libraryDescription = 'A set of helper methods for Android apps'
 
         siteUrl = 'https://github.com/botnerd/android-core'
-        gitUrl = 'https://github.com/botnerd/android-core.git'
+        scmConnection = 'scm:git:github.com/botnerd/android-core.git'
+        scmDeveloperConnection = 'scm:git:github.com/botnerd/android-core.git'
+        scmUrl = 'https://github.com/botnerd/android-core.git'
 
         developerId = 'botnerd'
         developerName = 'Tim Judkins'
@@ -69,8 +74,10 @@ buildscript {
         classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
 
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        // Maven Central publishing
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.13.0'
+        classpath 'org.jetbrains.dokka:dokka-gradle-plugin:1.4.10.2'
+        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.22.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -98,3 +105,5 @@ gradle.projectsEvaluated {
 subprojects {
     tasks.withType(Javadoc).all { enabled = false }
 }
+
+apply plugin: 'io.codearte.nexus-staging'
