@@ -23,10 +23,5 @@ jobs:
         run: ./bin/decrypt-secrets
         env:
           GITHUB_SECRET_PASSPHRASE: ${{ secrets.SECRETS_TAR_PASSPHRASE }}
-      - name: Download release assets
-        uses: RadiusNetworks/fetch-release-asset-action@v1
-        id: downloadassets
-        with:
-          token: ${{ secrets.GITHUB_API_TOKEN }}
       - name: Publish to MavenCentral
         run: ./gradlew :publishReleasePublicationToSonaTypeRepository :closeAndReleaseRepository
