@@ -24,4 +24,4 @@ jobs:
         env:
           GITHUB_SECRET_PASSPHRASE: ${{ secrets.SECRETS_TAR_PASSPHRASE }}
       - name: Publish to MavenCentral
-        run: ./gradlew :publishReleasePublicationToSonaTypeRepository :closeAndReleaseRepository
+        run: ./gradlew :publishReleasePublicationToSonatypeRepository :closeAndReleaseRepository
