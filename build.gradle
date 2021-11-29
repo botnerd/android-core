@@ -49,9 +49,6 @@ buildscript {
         okhttpVersion = '4.9.0'
         okioVersion = '2.2.2'
 
-        // Image Loading
-        frescoVersion = '2.3.0'
-
         // Timber logging util
         timberVersion = '4.7.1'
 

@@ -86,10 +86,6 @@ dependencies {
     // Chrome Custom Tabs
     implementation "androidx.browser:browser:$browserLibVersion"
 
-    // Image Loading
-    implementation "com.facebook.fresco:fresco:$frescoVersion"
-    implementation "com.facebook.fresco:animated-gif:$frescoVersion"
-
     // Timber logging util
     implementation "com.jakewharton.timber:timber:$timberVersion"
 

@@ -4,8 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+
 import com.botnerd.core.ui.BuildConfig;
-import com.facebook.drawee.backends.pipeline.Fresco;
+
 import timber.log.Timber;
 
 /**
@@ -25,8 +26,6 @@ public abstract class CoreApplication extends Application {
 		if (BuildConfig.DEBUG) {
 			Timber.plant(new Timber.DebugTree());
 		}
-
-		Fresco.initialize(this);
 
     }
 
